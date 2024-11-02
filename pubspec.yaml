@@ -1,0 +1,32 @@
+name: animated_clock_indicator
+description: "AnimatedClock is a highly customizable Flutter package that provides a sleek animated clock widget. 
+  It offers extensive configuration options for border styling, clock hand dimensions, colors, rotation durations, 
+  and animation ratios through the `AnimatedClockOptions` class. Designed with performance and flexibility in mind, 
+  the package utilizes immutable and final classes to ensure stability and optimal rendering. 
+  Easily integrate AnimatedClock into your Flutter applications to create visually appealing and responsive clock interfaces 
+  that enhance user experience."
+version: 1.0.0
+homepage: https://github.com/nkalahanov/animated_clock_indicator
+repository: https://github.com/nkalahanov/animated_clock_indicator
+
+environment:
+  sdk: ^3.5.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+keywords:
+  - animated clock
+  - animated clock indicator
+  - customizable clock
+  - loading clock
+  - clock animation
+  - message clock
+  - message loading
+  - message sending
+
+license: MIT

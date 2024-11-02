@@ -1,0 +1,25 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - .dart_tool/**
+
+linter:
+  rules:
+    # Suggested minor adjustments for Flutter packages
+
+    # Enforce const constructors where possible for better performance
+    prefer_const_constructors: true
+
+    # Encourage the use of final for variables that are not reassigned
+    prefer_final_locals: true
+
+    # Enforce a consistent naming convention for library prefixes
+    library_prefixes: true
+
+    # Require type annotations for public APIs
+    always_declare_return_types: true
+
+    # Ensure the use of lowercase_with_underscores for file names
+    file_names: true

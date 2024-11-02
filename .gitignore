@@ -1,0 +1,33 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code related
+.vscode/
+
+# Flutter/Dart/Pub related
+# Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
+pubspec.lock
+.dart_tool/
+build/
+**/doc/api/
+
+# Packages-related (Generated during flutter packages get or pub get)
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
