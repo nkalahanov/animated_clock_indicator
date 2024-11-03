@@ -1,7 +1,7 @@
 name: animated_clock_indicator
 description: "A customizable animated clock indicator widget for Flutter, allowing developers to add visually appealing, configurable clock animations to their applications."
 
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/nkalahanov/animated_clock_indicator
 repository: https://github.com/nkalahanov/animated_clock_indicator
 

@@ -32,6 +32,10 @@ class AnimatedClockIndicatorOptions {
   /// - [borderColor]: The color of the clock's border. Defaults to [Colors.black].
   /// - [minuteHandColor]: The color of the minute hand. Defaults to [Colors.black].
   /// - [hourHandColor]: The color of the hour hand. Defaults to [Colors.black].
+  /// - [minuteHandStrokeCap] and [hourHandStrokeCap] : The stroke cap style for the clock hands,
+  ///   defining the appearance of their ends (e.g., rounded, square, or flat). The stroke cap affects
+  ///   the visual style and potential positioning adjustments of each hand's end on the clock face.
+  ///   Both default to [StrokeCap.round] for a polished, smooth finish.
   const AnimatedClockIndicatorOptions({
     this.borderWidth = 2.0,
     this.minuteHandWidth = 1.0,
@@ -43,14 +47,16 @@ class AnimatedClockIndicatorOptions {
     this.borderColor = Colors.black,
     this.minuteHandColor = Colors.black,
     this.hourHandColor = Colors.black,
+    this.minuteHandStrokeCap = StrokeCap.round,
+    this.hourHandStrokeCap = StrokeCap.round,
   })  : assert(borderWidth >= 0, 'borderWidth must be non-negative'),
         assert(minuteHandWidth >= 0, 'minuteHandWidth must be non-negative'),
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
-        assert(clockHandsLengthRatio > 0 && clockHandsLengthRatio <= 1,
-            'clockHandsLengthRatio must be between 0 and 1'),
+        assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
+        'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-            'minuteToHourRotationRatio must be greater than 0');
+        'minuteToHourRotationRatio must be greater than 0');
 
   /// Creates an [AnimatedClockIndicatorOptions] with a single [color] applied uniformly
   /// to the border, minute hand, and hour hand.
@@ -78,6 +84,8 @@ class AnimatedClockIndicatorOptions {
     this.clockHandsLengthRatio = 0.618,
     this.minuteHandRotationDuration = const Duration(milliseconds: 1000),
     this.minuteToHourRotationRatio = 12.0,
+    this.minuteHandStrokeCap = StrokeCap.round,
+    this.hourHandStrokeCap = StrokeCap.round,
     required Color color,
   })  : borderColor = color,
         minuteHandColor = color,
@@ -86,10 +94,10 @@ class AnimatedClockIndicatorOptions {
         assert(minuteHandWidth >= 0, 'minuteHandWidth must be non-negative'),
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
-        assert(clockHandsLengthRatio > 0 && clockHandsLengthRatio <= 1,
-            'clockHandsLengthRatio must be between 0 and 1'),
+        assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
+        'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-            'minuteToHourRotationRatio must be greater than 0');
+        'minuteToHourRotationRatio must be greater than 0');
 
   /// Creates an [AnimatedClockIndicatorOptions] with a customizable color, allowing shades or hex values.
   ///
@@ -118,6 +126,8 @@ class AnimatedClockIndicatorOptions {
     this.clockHandsLengthRatio = 0.618,
     this.minuteHandRotationDuration = const Duration(milliseconds: 1000),
     this.minuteToHourRotationRatio = 12.0,
+    this.minuteHandStrokeCap = StrokeCap.round,
+    this.hourHandStrokeCap = StrokeCap.round,
     required this.borderColor,
     required this.minuteHandColor,
     required this.hourHandColor,
@@ -125,10 +135,10 @@ class AnimatedClockIndicatorOptions {
         assert(minuteHandWidth >= 0, 'minuteHandWidth must be non-negative'),
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
-        assert(clockHandsLengthRatio > 0 && clockHandsLengthRatio <= 1,
-            'clockHandsLengthRatio must be between 0 and 1'),
+        assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
+        'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-            'minuteToHourRotationRatio must be greater than 0');
+        'minuteToHourRotationRatio must be greater than 0');
 
   /// The width of the clock border, in logical pixels.
   ///
@@ -188,35 +198,44 @@ class AnimatedClockIndicatorOptions {
   /// Sets the visual color of the hour hand line.
   final Color hourHandColor;
 
+  /// The stroke cap style for the minute hand, defaulting to [StrokeCap.round].
+  final StrokeCap minuteHandStrokeCap;
+
+  /// The stroke cap style for the hour hand, defaulting to [StrokeCap.round].
+  final StrokeCap hourHandStrokeCap;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AnimatedClockIndicatorOptions &&
-          runtimeType == other.runtimeType &&
-          borderWidth == other.borderWidth &&
-          minuteHandWidth == other.minuteHandWidth &&
-          hourHandWidth == other.hourHandWidth &&
-          handInset == other.handInset &&
-          clockHandsLengthRatio == other.clockHandsLengthRatio &&
-          minuteHandRotationDuration == other.minuteHandRotationDuration &&
-          minuteToHourRotationRatio == other.minuteToHourRotationRatio &&
-          borderColor == other.borderColor &&
-          minuteHandColor == other.minuteHandColor &&
-          hourHandColor == other.hourHandColor;
+          other is AnimatedClockIndicatorOptions &&
+              runtimeType == other.runtimeType &&
+              borderWidth == other.borderWidth &&
+              minuteHandWidth == other.minuteHandWidth &&
+              hourHandWidth == other.hourHandWidth &&
+              handInset == other.handInset &&
+              clockHandsLengthRatio == other.clockHandsLengthRatio &&
+              minuteHandRotationDuration == other.minuteHandRotationDuration &&
+              minuteToHourRotationRatio == other.minuteToHourRotationRatio &&
+              borderColor == other.borderColor &&
+              minuteHandColor == other.minuteHandColor &&
+              hourHandColor == other.hourHandColor &&
+              minuteHandStrokeCap == other.minuteHandStrokeCap &&
+              hourHandStrokeCap == other.hourHandStrokeCap;
 
   @override
   int get hashCode => Object.hash(
-        borderWidth,
-        minuteHandWidth,
-        hourHandWidth,
-        handInset,
-        clockHandsLengthRatio,
-        minuteHandRotationDuration,
-        minuteToHourRotationRatio,
-        borderColor,
-        minuteHandColor,
-        hourHandColor,
-      );
+    borderWidth,
+    minuteHandWidth,
+    hourHandWidth,
+    handInset,
+    clockHandsLengthRatio,
+    minuteHandRotationDuration,
+    minuteToHourRotationRatio,
+    borderColor,
+    minuteHandColor,
+    minuteHandStrokeCap,
+    hourHandStrokeCap,
+  );
 
   @override
   String toString() => 'AnimatedClockIndicatorOptions('
@@ -230,5 +249,7 @@ class AnimatedClockIndicatorOptions {
       'borderColor: $borderColor, '
       'minuteHandColor: $minuteHandColor, '
       'hourHandColor: $hourHandColor'
+      'minuteHandStrokeCap: $minuteHandStrokeCap'
+      'hourHandStrokeCap: $hourHandStrokeCap'
       ')';
 }

@@ -10,33 +10,45 @@ class AnimatedClockApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Animated Clock Indicator Example',
+    return const MaterialApp(
+      title: 'Animated Clock Indicator Examples',
       home: Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Default AnimatedClockIndicator with no customization.
-              const SizedBox(
-                width: 20.0,
-                height: 20.0,
+              // Title and Example 1: Minimal clock with default settings
+              Text(
+                'Default Clock',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 8),
+              SizedBox(
+                width: 80.0,
+                height: 80.0,
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions(),
                 ),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: 20),
 
-              // Custom AnimatedClockIndicator with specific properties for each part.
-              const SizedBox(
-                width: 30.0,
-                height: 30.0,
+              // Title and Example 2: Customized clock with golden ratio length, distinct colors, and faster minute rotation
+              Text(
+                'Customized Clock',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 8),
+              SizedBox(
+                width: 100.0,
+                height: 100.0,
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions(
                     borderWidth: 3.0,
-                    minuteHandWidth: 2.0,
-                    hourHandWidth: 2.5,
-                    handInset: 2.5,
+                    minuteHandWidth: 2.5,
+                    hourHandWidth: 3.0,
+                    handInset: 3.0,
                     clockHandsLengthRatio: 0.618,
                     minuteHandRotationDuration: Duration(milliseconds: 800),
                     minuteToHourRotationRatio: 12.0,
@@ -46,77 +58,80 @@ class AnimatedClockApp extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: 20),
 
-              // AnimatedClockIndicator using withUniformColor constructor
-              const SizedBox(
-                width: 40.0,
-                height: 40.0,
+              // Title and Example 3: Uniform color clock with custom stroke width for all elements
+              Text(
+                'Uniform Color Clock',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 8),
+              SizedBox(
+                width: 120.0,
+                height: 120.0,
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions.withUniformColor(
                     color: Colors.blue,
-                    // Applies the same color to all parts.
-                    borderWidth: 3.0,
-                    minuteHandWidth: 2.0,
-                    hourHandWidth: 2.5,
-                    handInset: 2.5,
-                    minuteHandRotationDuration: Duration(milliseconds: 800),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 5),
-              SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: AnimatedClockIndicator(
-                  options: AnimatedClockIndicatorOptions.withCustomColor(
-                    borderColor: Colors.red.shade700,
-                    minuteHandColor: const Color(0xFF42A5F5),
-                    hourHandColor: Colors.green,
-                    borderWidth: 3.5,
+                    borderWidth: 4.0,
                     minuteHandWidth: 2.5,
                     hourHandWidth: 3.0,
                     handInset: 3.0,
-                    minuteHandRotationDuration: const Duration(milliseconds: 700),
+                    minuteHandRotationDuration: Duration(milliseconds: 1000),
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
-              // AnimatedClockIndicator without hour hand.
+              SizedBox(height: 20),
+
+              // Title and Example 4: Clock with distinct stroke caps for hour and minute hands
+              Text(
+                'Clock with Distinct Stroke Caps',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 8),
               SizedBox(
-                width: 70.0,
-                height: 70.0,
+                width: 140.0,
+                height: 140.0,
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions(
-                    borderWidth: 5.0,
-                    minuteHandWidth: 4.0,
-                    hourHandWidth: 0.0, //setting to zero
-                    handInset: 4.5,
-                    clockHandsLengthRatio: 0.0, //setting to zero
-                    minuteHandRotationDuration: const Duration(milliseconds: 400),
-                    minuteToHourRotationRatio: 12.0,
+                    borderWidth: 3.5,
+                    minuteHandWidth: 3.0,
+                    hourHandWidth: 4.0,
+                    handInset: 2.5,
+                    clockHandsLengthRatio: 0.75,
+                    minuteHandRotationDuration: Duration(milliseconds: 900),
+                    borderColor: Colors.red,
+                    minuteHandColor: Colors.blue,
+                    hourHandColor: Colors.green,
+                    minuteHandStrokeCap: StrokeCap.butt,
+                    hourHandStrokeCap: StrokeCap.square,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+
+              // Title and Example 5: Clock without hour hand (clockHandsLengthRatio set to 0)
+              Text(
+                'Clock without Hour Hand',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              SizedBox(height: 8),
+              SizedBox(
+                width: 160.0,
+                height: 160.0,
+                child: AnimatedClockIndicator(
+                  options: AnimatedClockIndicatorOptions(
+                    borderWidth: 4.0,
+                    minuteHandWidth: 3.0,
+                    hourHandWidth: 3.0,
+                    handInset: 4.0,
+                    clockHandsLengthRatio: 0,
+                    // Only minute hand visible
+                    minuteHandRotationDuration: Duration(milliseconds: 700),
                     borderColor: Colors.green,
                     minuteHandColor: Colors.lightGreen,
-                    hourHandColor: Colors.greenAccent,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 5),
-              const SizedBox(
-                width: 150.0,
-                height: 150.0,
-                child: AnimatedClockIndicator(
-                  options: AnimatedClockIndicatorOptions(
-                    borderWidth: 5.5,
-                    minuteHandWidth: 4.5,
-                    hourHandWidth: 5.0,
-                    handInset: 5.0,
-                    clockHandsLengthRatio: 0.9,
-                    minuteHandRotationDuration: Duration(milliseconds: 6300),
-                    minuteToHourRotationRatio: 12.0,
-                    borderColor: Colors.purple,
-                    minuteHandColor: Colors.deepPurple,
-                    hourHandColor: Colors.purpleAccent,
                   ),
                 ),
               ),

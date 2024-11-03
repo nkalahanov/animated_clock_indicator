@@ -168,12 +168,12 @@ final class _AnimatedClockIndicatorPainter extends CustomPainter {
           ..style = PaintingStyle.stroke
           ..color = options.minuteHandColor
           ..strokeWidth = options.minuteHandWidth
-          ..strokeCap = StrokeCap.round,
+          ..strokeCap = options.minuteHandStrokeCap,
         _hourHandPaint = Paint()
           ..style = PaintingStyle.stroke
           ..color = options.hourHandColor
           ..strokeWidth = options.hourHandWidth
-          ..strokeCap = StrokeCap.round,
+          ..strokeCap = options.hourHandStrokeCap,
         super(repaint: repaint);
 
   /// The options that customize the appearance of the clock.
@@ -191,6 +191,14 @@ final class _AnimatedClockIndicatorPainter extends CustomPainter {
   /// The paint used to draw the hour hand.
   final Paint _hourHandPaint;
 
+  /// Offset adjustment flipped for stroke caps.
+  Offset calculateStartOffset(Paint paint) {
+    // Only apply the offset when the stroke cap is NOT square or round.
+    return paint.strokeCap == StrokeCap.butt
+        ? Offset(0, -paint.strokeWidth / 2)
+        : Offset.zero;
+  }
+
   /// Paints the clock on the given [canvas] with the specified [size].
   @override
   void paint(Canvas canvas, Size size) {
@@ -202,6 +210,9 @@ final class _AnimatedClockIndicatorPainter extends CustomPainter {
     final hourHandAngle = repaint.value;
     final minuteHandAngle = hourHandAngle * options.minuteToHourRotationRatio;
 
+    final hourStartOffset = calculateStartOffset(_hourHandPaint);
+    final minuteStartOffset = calculateStartOffset(_minuteHandPaint);
+
     canvas
       ..save()
       ..translate(size.width / 2, size.height / 2)
@@ -209,7 +220,7 @@ final class _AnimatedClockIndicatorPainter extends CustomPainter {
       ..save()
       ..rotate(hourHandAngle)
       ..drawLine(
-        Offset(0, options.hourHandWidth / 2),
+        hourStartOffset,
         Offset(0, hourHandHeight),
         _hourHandPaint,
       )
@@ -217,7 +228,7 @@ final class _AnimatedClockIndicatorPainter extends CustomPainter {
       ..save()
       ..rotate(minuteHandAngle)
       ..drawLine(
-        Offset(0, options.minuteHandWidth / 2),
+        minuteStartOffset,
         Offset(0, minuteHandHeight),
         _minuteHandPaint,
       )
