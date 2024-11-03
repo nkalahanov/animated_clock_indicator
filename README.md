@@ -19,7 +19,7 @@ Add the following to your pubspec.yaml:
 
 ```yaml
 dependencies:
-animated_clock_indicator: ^1.0.0
+animated_clock_indicator: ^1.0.1
 ```
 Then, run:
 ```bash
