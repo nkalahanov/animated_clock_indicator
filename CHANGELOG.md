@@ -1,5 +1,8 @@
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2024-11-03
+### Changed
+- **Code Formatting**: Standardized code formatting across the project to improve readability and maintain consistency.
 
 ## [1.0.3] - 2024-11-03
 ### Added

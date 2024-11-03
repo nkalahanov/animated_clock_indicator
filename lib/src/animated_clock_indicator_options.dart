@@ -54,9 +54,9 @@ class AnimatedClockIndicatorOptions {
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
         assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
-        'clockHandsLengthRatio must be between 0 and 1'),
+            'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-        'minuteToHourRotationRatio must be greater than 0');
+            'minuteToHourRotationRatio must be greater than 0');
 
   /// Creates an [AnimatedClockIndicatorOptions] with a single [color] applied uniformly
   /// to the border, minute hand, and hour hand.
@@ -95,9 +95,9 @@ class AnimatedClockIndicatorOptions {
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
         assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
-        'clockHandsLengthRatio must be between 0 and 1'),
+            'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-        'minuteToHourRotationRatio must be greater than 0');
+            'minuteToHourRotationRatio must be greater than 0');
 
   /// Creates an [AnimatedClockIndicatorOptions] with a customizable color, allowing shades or hex values.
   ///
@@ -136,9 +136,9 @@ class AnimatedClockIndicatorOptions {
         assert(hourHandWidth >= 0, 'hourHandWidth must be non-negative'),
         assert(handInset >= 0, 'handInset must be non-negative'),
         assert(clockHandsLengthRatio >= 0 && clockHandsLengthRatio <= 1,
-        'clockHandsLengthRatio must be between 0 and 1'),
+            'clockHandsLengthRatio must be between 0 and 1'),
         assert(minuteToHourRotationRatio > 0,
-        'minuteToHourRotationRatio must be greater than 0');
+            'minuteToHourRotationRatio must be greater than 0');
 
   /// The width of the clock border, in logical pixels.
   ///
@@ -207,35 +207,35 @@ class AnimatedClockIndicatorOptions {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is AnimatedClockIndicatorOptions &&
-              runtimeType == other.runtimeType &&
-              borderWidth == other.borderWidth &&
-              minuteHandWidth == other.minuteHandWidth &&
-              hourHandWidth == other.hourHandWidth &&
-              handInset == other.handInset &&
-              clockHandsLengthRatio == other.clockHandsLengthRatio &&
-              minuteHandRotationDuration == other.minuteHandRotationDuration &&
-              minuteToHourRotationRatio == other.minuteToHourRotationRatio &&
-              borderColor == other.borderColor &&
-              minuteHandColor == other.minuteHandColor &&
-              hourHandColor == other.hourHandColor &&
-              minuteHandStrokeCap == other.minuteHandStrokeCap &&
-              hourHandStrokeCap == other.hourHandStrokeCap;
+      other is AnimatedClockIndicatorOptions &&
+          runtimeType == other.runtimeType &&
+          borderWidth == other.borderWidth &&
+          minuteHandWidth == other.minuteHandWidth &&
+          hourHandWidth == other.hourHandWidth &&
+          handInset == other.handInset &&
+          clockHandsLengthRatio == other.clockHandsLengthRatio &&
+          minuteHandRotationDuration == other.minuteHandRotationDuration &&
+          minuteToHourRotationRatio == other.minuteToHourRotationRatio &&
+          borderColor == other.borderColor &&
+          minuteHandColor == other.minuteHandColor &&
+          hourHandColor == other.hourHandColor &&
+          minuteHandStrokeCap == other.minuteHandStrokeCap &&
+          hourHandStrokeCap == other.hourHandStrokeCap;
 
   @override
   int get hashCode => Object.hash(
-    borderWidth,
-    minuteHandWidth,
-    hourHandWidth,
-    handInset,
-    clockHandsLengthRatio,
-    minuteHandRotationDuration,
-    minuteToHourRotationRatio,
-    borderColor,
-    minuteHandColor,
-    minuteHandStrokeCap,
-    hourHandStrokeCap,
-  );
+        borderWidth,
+        minuteHandWidth,
+        hourHandWidth,
+        handInset,
+        clockHandsLengthRatio,
+        minuteHandRotationDuration,
+        minuteToHourRotationRatio,
+        borderColor,
+        minuteHandColor,
+        minuteHandStrokeCap,
+        hourHandStrokeCap,
+      );
 
   @override
   String toString() => 'AnimatedClockIndicatorOptions('

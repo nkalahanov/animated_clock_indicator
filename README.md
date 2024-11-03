@@ -18,7 +18,7 @@ Add the following to your pubspec.yaml:
 
 ```yaml
 dependencies:
-animated_clock_indicator: ^1.0.3
+animated_clock_indicator: ^1.0.4
 ```
 
 Then, run:
