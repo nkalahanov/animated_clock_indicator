@@ -1,6 +1,7 @@
 ## Animated Clock Indicator ⏰
 
 An animated clock indicator widget for Flutter, allowing you to display customizable clock animations in your app.
+
 ![Animated Clock Indicator](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWg3OHU3emFnOXNjcnc2encxOTlpbzVzYmhmeDUxcnBjZG04aW9oaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ovi28qe2giNFCkh9Xj/giphy.gif)
 
 ## Features
