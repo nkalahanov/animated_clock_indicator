@@ -71,28 +71,29 @@ class AnimatedClockApp extends StatelessWidget {
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions.withCustomColor(
                     borderColor: Colors.red.shade700,
-                    minuteHandColor: Color(0xFF42A5F5),
+                    minuteHandColor: const Color(0xFF42A5F5),
                     hourHandColor: Colors.green,
                     borderWidth: 3.5,
                     minuteHandWidth: 2.5,
                     hourHandWidth: 3.0,
                     handInset: 3.0,
-                    minuteHandRotationDuration: Duration(milliseconds: 700),
+                    minuteHandRotationDuration: const Duration(milliseconds: 700),
                   ),
                 ),
               ),
               const SizedBox(height: 5),
-              const SizedBox(
+              // AnimatedClockIndicator without hour hand.
+              SizedBox(
                 width: 70.0,
                 height: 70.0,
                 child: AnimatedClockIndicator(
                   options: AnimatedClockIndicatorOptions(
                     borderWidth: 5.0,
                     minuteHandWidth: 4.0,
-                    hourHandWidth: 4.5,
+                    hourHandWidth: 0.0, //setting to zero
                     handInset: 4.5,
-                    clockHandsLengthRatio: 0.85,
-                    minuteHandRotationDuration: Duration(milliseconds: 400),
+                    clockHandsLengthRatio: 0.0, //setting to zero
+                    minuteHandRotationDuration: const Duration(milliseconds: 400),
                     minuteToHourRotationRatio: 12.0,
                     borderColor: Colors.green,
                     minuteHandColor: Colors.lightGreen,
